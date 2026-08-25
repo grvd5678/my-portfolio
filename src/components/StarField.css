@@ -1,0 +1,35 @@
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  animation: moveUp var(--twinkle-duration, 2s) ease-in-out infinite alternate,
+             float linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes moveUp {
+  0%   { opacity: 0.2; transform: translateY(0px); }
+  100% { opacity: 1;   transform: translateY(-8px); }
+}
+
+@keyframes float {
+  0%   { transform: translateY(0vh); }
+  100% { transform: translateY(-100vh); }
+}
+
+.meteor {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(147, 51, 234, 0.8), transparent);
+  border-radius: 999px;
+  animation: meteor linear infinite;
+  will-change: transform, opacity;
+  transform: rotate(35deg);
+}
+
+@keyframes meteor {
+  0%   { transform: rotate(35deg) translateX(0);      opacity: 1; }
+  70%  { opacity: 1; }
+  100% { transform: rotate(35deg) translateX(600px);  opacity: 0; }
+}
