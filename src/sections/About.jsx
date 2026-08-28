@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { User, Code2, Sparkles, Cloud, Database } from 'lucide-react';
 import FlipCard from '../components/FlipCard';
-import ResumeModal from '../components/ResumeModal';
 
 const stats = [
   { value: "B.Tech", label: "CSE • MAKAUT (7.56 CGPA)" },
@@ -11,8 +9,6 @@ const stats = [
 ];
 
 const About = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <div className="w-full h-full flex flex-col justify-center max-w-6xl mx-auto px-4 sm:px-6 py-6">
       {/* Header */}
@@ -80,12 +76,9 @@ const About = () => {
 
         {/* 3D FlipCard (5 cols) */}
         <div className="lg:col-span-5 flex justify-center items-center">
-          <FlipCard onOpenResumeModal={() => setIsModalOpen(true)} />
+          <FlipCard />
         </div>
       </div>
-
-      {/* Resume Modal */}
-      <ResumeModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };

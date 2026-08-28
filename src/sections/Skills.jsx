@@ -3,10 +3,10 @@ import DomainRotator from "../components/DomainRotator";
 
 const skillGroups = [
   {
-    category: "Languages & Web Core",
+    category: "Languages & Core CS",
     icon: <Code2 className="text-pink-400" size={18} />,
     color: "border-pink-500/30",
-    skills: ["JavaScript (ES6+)", "Python", "Java", "SQL", "HTML5", "CSS3", "Tailwind CSS"],
+    skills: ["JavaScript (ES6+)", "Python", "Java", "DSA & Algorithms", "OOP & DBMS", "SQL", "Tailwind CSS"],
   },
   {
     category: "Frontend & Frameworks",

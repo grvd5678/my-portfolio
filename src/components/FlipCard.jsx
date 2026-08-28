@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Download, Eye, GraduationCap, MapPin, Sparkles, RefreshCw } from "lucide-react";
+import { Download, GraduationCap, MapPin, Sparkles, RefreshCw } from "lucide-react";
 
-const FlipCard = ({ onOpenResumeModal }) => {
+const FlipCard = () => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
@@ -74,7 +74,7 @@ const FlipCard = ({ onOpenResumeModal }) => {
                 </div>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-1.5">
+              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10 space-y-1.5">
                 <p className="font-semibold text-cyan-300 text-[11px]">Core Highlights</p>
                 <p className="text-[11px] text-gray-300 leading-relaxed">
                   ● Built <strong>FinPulse SaaS</strong> with Next.js 16 App Router & Drizzle ORM.
@@ -83,30 +83,24 @@ const FlipCard = ({ onOpenResumeModal }) => {
                   ● <strong>RAG Q&A Assistant</strong> with LangChain & Gemini.
                 </p>
                 <p className="text-[11px] text-gray-300 leading-relaxed">
+                  ● <strong>Core CS</strong>: DSA, OOP, DBMS (NeetCode 150).
+                </p>
+                <p className="text-[11px] text-gray-300 leading-relaxed">
                   ● <strong>AWS re/Start</strong> Cloud Trainee (Tata Strive).
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Action Buttons on Back of Card */}
-          <div className="pt-2 border-t border-white/10 flex flex-col gap-2">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onOpenResumeModal && onOpenResumeModal();
-              }}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold shadow-lg shadow-purple-600/30 transition-all"
-            >
-              <Eye size={14} /> Preview Resume CV
-            </button>
+          {/* Action Button on Back of Card */}
+          <div className="pt-2 border-t border-white/10">
             <a
               href="/Gourav_Das_Resume_FullStack.pdf"
               download="Gourav_Das_Resume.pdf"
               onClick={(e) => e.stopPropagation()}
-              className="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/15 text-gray-200 hover:text-white text-xs font-medium transition-all"
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-semibold text-xs shadow-lg shadow-purple-600/30 transition-all hover:scale-[1.02]"
             >
-              <Download size={14} /> Download PDF
+              <Download size={15} /> Download Latest Resume (PDF)
             </a>
           </div>
         </div>
@@ -116,4 +110,3 @@ const FlipCard = ({ onOpenResumeModal }) => {
 };
 
 export default FlipCard;
-
