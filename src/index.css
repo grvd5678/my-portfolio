@@ -3,12 +3,24 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --accent-home: #8b5cf6;
+    --accent-about: #a855f7;
+    --accent-skills: #ec4899;
+    --accent-web: #06b6d4;
+    --accent-ai: #8b5cf6;
+    --accent-systems: #f59e0b;
+    --accent-experience: #10b981;
+    --accent-contact: #f97316;
+  }
+
   * {
     @apply scroll-smooth;
   }
   
   body {
-    @apply bg-[#070712] text-gray-100 overflow-x-hidden selection:bg-purple-500/30 selection:text-purple-200;
+    @apply bg-[#06060f] text-gray-100 selection:bg-purple-500/30 selection:text-purple-200 antialiased;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   }
 }
 
@@ -17,8 +29,16 @@
     @apply bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
   }
 
+  .text-gradient-cyan {
+    @apply bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent;
+  }
+
   .text-gradient-purple {
     @apply bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-amber {
+    @apply bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent;
   }
 
   .bg-cyber-grid {
@@ -40,8 +60,61 @@
   .glass-dock {
     @apply bg-[#0c0c1a]/75 backdrop-blur-2xl border border-white/15 shadow-2xl shadow-purple-950/40;
   }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
 }
 
+/* 3D Domain Rotator Scene & Carousel */
+.scene-rotator {
+  width: 220px;
+  height: 140px;
+  position: relative;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+.carousel-rotator {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-rotator__cell {
+  position: absolute;
+  width: 200px;
+  height: 120px;
+  left: 10px;
+  top: 10px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s, border-color 0.3s;
+}
+
+/* Aurora Drift Keyframes */
 @keyframes aurora-orbit-1 {
   0% {
     transform: translate(0px, 0px) scale(1);
@@ -78,5 +151,14 @@
 
 .animate-aurora-2 {
   animation: aurora-orbit-2 22s ease-in-out infinite;
+}
+
+/* Custom Hide Scrollbar for Horizontal Sliders */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 

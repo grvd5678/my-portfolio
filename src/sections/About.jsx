@@ -1,94 +1,92 @@
-import { Code, Bot, Cloud, Download, Eye } from 'lucide-react';
 import { useState } from 'react';
-import Button from '../components/Button';
+import { User, Code2, Sparkles, Cloud, Database } from 'lucide-react';
+import FlipCard from '../components/FlipCard';
 import ResumeModal from '../components/ResumeModal';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const highlights = [
-  {
-    icon: <Code className="text-purple-400" size={32} />,
-    title: "Full-Stack & SaaS Engineering",
-    desc: "Building production web apps and multi-tenant SaaS platforms with React 19, Next.js 16, MERN, Neon PostgreSQL, and Drizzle ORM."
-  },
-  {
-    icon: <Bot className="text-purple-400" size={32} />,
-    title: "Generative AI & RAG Systems",
-    desc: "Developing document-grounded Q&A systems and AI shopping assistants using FastAPI, LangChain, and Google Gemini."
-  },
-  {
-    icon: <Cloud className="text-purple-400" size={32} />,
-    title: "Cloud & API Architecture",
-    desc: "Deploying secure REST APIs, role-based access control (RBAC), and provisioning core AWS services (EC2, VPC, S3) with Linux."
-  }
+const stats = [
+  { value: "B.Tech", label: "CSE • MAKAUT (7.56 CGPA)" },
+  { value: "10+", label: "Projects Engineered" },
+  { value: "7+", label: "Verified Certifications" },
+  { value: "AWS", label: "re/Start Cloud Trainee" },
 ];
 
 const About = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [ref, isVisible] = useScrollAnimation();
 
   return (
-    <section id="about" className="py-20 px-6">
-      <div ref={ref} className={`max-w-6xl mx-auto transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}>
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-          About <span className="text-gradient">Me</span>
+    <div className="w-full h-full flex flex-col justify-center max-w-6xl mx-auto px-4 sm:px-6 py-6">
+      {/* Header */}
+      <div className="mb-6 sm:mb-8 border-b border-white/10 pb-4">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/10 text-purple-300 border border-purple-500/20 mb-2">
+          <User size={13} /> Introduction
+        </div>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+          About <span className="text-gradient">Gourav Das</span>
         </h2>
-        
-        <div className="mt-16 grid md:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col items-center md:items-start">
-            <div className="mb-8">
-              <div className="relative w-48 h-48 mx-auto md:mx-0">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-700 rounded-full blur-xl opacity-50"></div>
-                <img 
-                  src="/profile.jpeg" 
-                  alt="Gourav Das" 
-                  width={192}
-                  height={192}
-                  loading="eager"
-                  decoding="async"
-                  className="relative w-full h-full rounded-full object-cover border-4 border-purple-500 shadow-2xl"
-                  style={{ objectPosition: 'center top' }}
-                />
-              </div>
-            </div>
-            <h3 className="text-2xl font-bold mb-4 text-center md:text-left">Full-Stack & GenAI Developer</h3>
-            <p className="text-gray-300 mb-4 leading-relaxed">
-              Full-stack developer specializing in modern JavaScript/TypeScript and Python ecosystems. Hands-on experience building enterprise financial analytics platforms (FinPulse SaaS), full-stack e-commerce platforms with integrated payments and AI shopping assistants, and RAG document intelligence backends.
+        <p className="text-xs sm:text-sm text-gray-400 mt-1">
+          Full-stack developer building robust, intelligent, and scalable digital solutions.
+        </p>
+      </div>
+
+      {/* Main Grid: Narrative & Stats on Left, 3D FlipCard on Right */}
+      <div className="grid lg:grid-cols-12 gap-8 items-center">
+        {/* Narrative & Stats (7 cols) */}
+        <div className="lg:col-span-7 flex flex-col justify-between space-y-5">
+          <div className="space-y-3.5 text-xs sm:text-sm text-gray-300 leading-relaxed">
+            <p>
+              I am a Computer Science Engineer based in Kolkata, West Bengal, passionate about architecting scalable full-stack applications, distributed databases, and generative AI systems.
             </p>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Currently deepening cloud fundamentals and infrastructure design through the AWS re/Start program at Tata Strive. Passionate about architecting scalable REST APIs, optimizing serverless relational databases, and crafting fast, accessible user interfaces.
+            <p>
+              My hands-on experience spans building enterprise SaaS platforms with <strong>Next.js 16 App Router</strong> and <strong>Drizzle ORM (FinPulse)</strong>, production-grade <strong>MERN e-commerce marketplaces</strong> with 40+ REST endpoints and Gemini AI shopping assistants, and <strong>RAG document intelligence systems</strong> using FastAPI, LangChain, and Google Gemini.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Button href="#contact">Get In Touch</Button>
-              <Button variant="outline" href="#projects">View Projects</Button>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="flex items-center gap-2 border border-purple-500 px-6 py-3 rounded-full hover:bg-purple-500/10 transition-all font-medium">
-                <Eye size={18} /> Preview CV
-              </button>
-              <a href="/Gourav_Das_Resume_FullStack.pdf" download="Gourav_Das_Resume.pdf"
-                 className="flex items-center gap-2 border border-purple-500 px-6 py-3 rounded-full hover:bg-purple-500/10 transition-all font-medium">
-                <Download size={18} /> Download CV
-              </a>
-            </div>
+            <p>
+              Currently, I am deepening core cloud infrastructure (VPC, EC2, S3), Linux administration, and security fundamentals through the <strong>AWS re/Start program at Tata Strive</strong>.
+            </p>
           </div>
 
-          <div className="space-y-6">
-            {highlights.map((item, idx) => (
-              <div key={idx} className="flex gap-4 p-5 bg-white/5 rounded-xl border border-white/5 hover:border-white/10 hover:bg-white/10 transition-all">
-                <div className="flex-shrink-0 mt-1">{item.icon}</div>
-                <div>
-                  <h4 className="font-bold text-white mb-1.5">{item.title}</h4>
-                  <p className="text-sm text-gray-300 leading-relaxed">{item.desc}</p>
-                </div>
+          {/* Stats Dashboard Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            {stats.map((stat, idx) => (
+              <div
+                key={idx}
+                className="p-3 rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-md flex flex-col items-center text-center hover:border-purple-500/30 transition-colors"
+              >
+                <span className="text-xl sm:text-2xl font-extrabold text-white font-mono">
+                  {stat.value}
+                </span>
+                <span className="text-[10px] sm:text-[11px] text-purple-300/80 font-medium mt-0.5 leading-tight">
+                  {stat.label}
+                </span>
               </div>
             ))}
           </div>
+
+          {/* Core Strengths Badges */}
+          <div className="flex flex-wrap gap-2 pt-2">
+            <span className="inline-flex items-center gap-1 text-[11px] font-mono px-3 py-1 rounded-full bg-white/[0.04] text-gray-300 border border-white/10">
+              <Code2 size={12} className="text-cyan-400" /> Full-Stack MERN & Next.js
+            </span>
+            <span className="inline-flex items-center gap-1 text-[11px] font-mono px-3 py-1 rounded-full bg-white/[0.04] text-gray-300 border border-white/10">
+              <Sparkles size={12} className="text-purple-400" /> GenAI & RAG Pipelines
+            </span>
+            <span className="inline-flex items-center gap-1 text-[11px] font-mono px-3 py-1 rounded-full bg-white/[0.04] text-gray-300 border border-white/10">
+              <Cloud size={12} className="text-pink-400" /> AWS Cloud & DevOps
+            </span>
+            <span className="inline-flex items-center gap-1 text-[11px] font-mono px-3 py-1 rounded-full bg-white/[0.04] text-gray-300 border border-white/10">
+              <Database size={12} className="text-amber-400" /> SQL & Relational Databases
+            </span>
+          </div>
+        </div>
+
+        {/* 3D FlipCard (5 cols) */}
+        <div className="lg:col-span-5 flex justify-center items-center">
+          <FlipCard onOpenResumeModal={() => setIsModalOpen(true)} />
         </div>
       </div>
+
+      {/* Resume Modal */}
       <ResumeModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </section>
+    </div>
   );
 };
 
