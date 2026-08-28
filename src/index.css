@@ -81,10 +81,10 @@
 
 /* 3D Domain Rotator Scene & Carousel */
 .scene-rotator {
-  width: 220px;
-  height: 140px;
+  width: 250px;
+  height: 150px;
   position: relative;
-  perspective: 1000px;
+  perspective: 1100px;
   margin: 0 auto;
 }
 
@@ -98,20 +98,22 @@
 
 .carousel-rotator__cell {
   position: absolute;
-  width: 200px;
-  height: 120px;
-  left: 10px;
+  width: 220px;
+  height: 130px;
+  left: 15px;
   top: 10px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  background: #0d0c1e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.8);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s, border-color 0.3s;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, border-color 0.3s;
 }
 
 /* Aurora Drift Keyframes */
