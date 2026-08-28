@@ -116,3 +116,4 @@ const FlipCard = ({ onOpenResumeModal }) => {
 };
 
 export default FlipCard;
+

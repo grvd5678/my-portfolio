@@ -54,3 +54,4 @@ const PageProgress = ({ currentSlide = 0, onSelectSlide }) => {
 };
 
 export default PageProgress;
+

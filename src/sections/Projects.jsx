@@ -63,7 +63,7 @@ const Projects = () => {
         "JWT & RBAC",
       ],
       year: "2026",
-      link: "https://ecommerce-frontend-production-8d98.up.railway.app",
+      link: "https://ecommerce-frontend-l3zz.onrender.com/",
     },
     {
       title: "Fake News Detection (ML)",

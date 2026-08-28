@@ -82,3 +82,4 @@ const CertificateModal = ({ isOpen, onClose, certificate }) => {
 };
 
 export default CertificateModal;
+

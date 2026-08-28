@@ -20,7 +20,7 @@ const webProjects = [
     badge: "MERN Stack • 40+ Endpoints",
     desc: "Production-grade e-commerce application with 40+ REST API endpoints, JWT auth, OTP verification, RBAC across admin/seller/buyer roles, Stripe & Razorpay checkout, and an integrated Google Gemini AI shopping assistant. API hardened with Helmet, CORS, and rate limiting.",
     tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Google Gemini AI", "Stripe", "Razorpay"],
-    live: "https://ecommerce-frontend-production-8d98.up.railway.app",
+    live: "https://ecommerce-frontend-l3zz.onrender.com/",
     github: "https://github.com/grvd5678/E-Commerce",
     featured: true,
     stats: "40+ REST Endpoints",
@@ -197,3 +197,4 @@ const ProjectsWeb = () => {
 };
 
 export default ProjectsWeb;
+
