@@ -1,4 +1,4 @@
-import { Cpu, Heart, Film, Database, Github } from "lucide-react";
+import { Cpu, Heart, Film, Database, Github, ExternalLink } from "lucide-react";
 import TiltCard from "../components/TiltCard";
 
 const systemProjects = [
@@ -11,6 +11,7 @@ const systemProjects = [
     icon: <Heart className="text-rose-400" size={22} />,
     color: "border-rose-500/30",
     stats: "5 Classifiers Compared",
+    live: "https://heart-disease-predictor-1j4t.onrender.com/",
   },
   {
     title: "Big Data & Hadoop Storage System",
@@ -88,13 +89,24 @@ const ProjectsSystems = () => {
                   ))}
                 </div>
 
-                <div className="pt-3 border-t border-white/10 flex justify-between items-center text-xs">
-                  <span className="font-mono text-gray-400">{project.stats}</span>
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-2 text-xs">
+                  {project.live ? (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-rose-500 to-amber-500 hover:from-rose-400 hover:to-amber-400 text-white font-semibold text-xs transition-all shadow-md shadow-rose-500/20"
+                    >
+                      <ExternalLink size={13} /> Live Demo
+                    </a>
+                  ) : (
+                    <span className="font-mono text-gray-400">{project.stats}</span>
+                  )}
                   <a
                     href="https://github.com/grvd5678"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-gray-300 hover:text-white font-medium"
+                    className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-gray-300 hover:text-white font-medium border border-white/10 transition-all text-xs"
                   >
                     <Github size={13} /> Codebase
                   </a>

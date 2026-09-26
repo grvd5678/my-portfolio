@@ -1,4 +1,4 @@
-import { Brain, Sparkles, Github, ArrowRight, Zap, CheckCircle2 } from "lucide-react";
+import { Brain, Sparkles, Github, ArrowRight, Zap, CheckCircle2, ExternalLink } from "lucide-react";
 import TiltCard from "../components/TiltCard";
 
 const ProjectsAI = () => {
@@ -71,12 +71,20 @@ const ProjectsAI = () => {
 
                 <div className="flex items-center gap-3 pt-4 border-t border-white/10">
                   <a
+                    href="https://rag-doc-assistant-pearl.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-semibold text-xs transition-all shadow-lg shadow-purple-600/30"
+                  >
+                    <ExternalLink size={15} /> Live Demo
+                  </a>
+                  <a
                     href="https://github.com/grvd5678"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs transition-all shadow-lg shadow-purple-600/30"
+                    className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/15 text-gray-200 hover:text-white font-medium text-xs transition-all"
                   >
-                    <Github size={15} /> Explore Codebase
+                    <Github size={15} /> Source Code
                   </a>
                 </div>
               </div>
@@ -127,15 +135,22 @@ const ProjectsAI = () => {
                   ))}
                 </div>
 
-                <div className="pt-3 border-t border-white/10 flex justify-between items-center text-xs text-gray-400">
-                  <span className="font-mono">Status: Verified Model</span>
+                <div className="pt-3 border-t border-white/10 flex items-center gap-2">
+                  <a
+                    href="https://fake-news-detection-ffbj9xbmxayxmkifc8fyje.streamlit.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white font-semibold text-xs transition-all shadow-md shadow-cyan-500/20"
+                  >
+                    <ExternalLink size={13} /> Live Demo
+                  </a>
                   <a
                     href="https://github.com/grvd5678"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-cyan-300 hover:text-white font-medium"
+                    className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/15 text-gray-300 hover:text-white text-xs font-medium transition-all"
                   >
-                    View Project <ArrowRight size={13} />
+                    <Github size={13} /> Codebase
                   </a>
                 </div>
               </div>

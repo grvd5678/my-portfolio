@@ -44,7 +44,7 @@ const Projects = () => {
         "Pydantic",
       ],
       year: "2026",
-      link: null,
+      link: "https://rag-doc-assistant-pearl.vercel.app/",
     },
     {
       title: "E-Commerce Web Application",
@@ -80,7 +80,7 @@ const Projects = () => {
         "Pandas",
       ],
       year: "2025 - 2026",
-      link: null,
+      link: "https://fake-news-detection-ffbj9xbmxayxmkifc8fyje.streamlit.app/",
     },
     {
       title: "Heart Disease Prediction System (ML)",
@@ -96,7 +96,7 @@ const Projects = () => {
         "Ensemble Learning",
       ],
       year: "2024 - 2025",
-      link: null,
+      link: "https://heart-disease-predictor-1j4t.onrender.com/",
     },
     {
       title: "Personal Developer Portfolio",
