@@ -4,8 +4,8 @@ import FlipCard from '../components/FlipCard';
 const stats = [
   { value: "B.Tech", label: "CSE • MAKAUT (7.56 CGPA)" },
   { value: "10+", label: "Projects Engineered" },
-  { value: "7+", label: "Verified Certifications" },
-  { value: "AWS", label: "re/Start Cloud Trainee" },
+  { value: "8+", label: "Verified Certifications" },
+  { value: "AWS", label: "Certified Cloud Practitioner" },
 ];
 
 const About = () => {
@@ -20,7 +20,7 @@ const About = () => {
           About <span className="text-gradient">Gourav Das</span>
         </h2>
         <p className="text-xs sm:text-sm text-gray-400 mt-1">
-          Full-stack developer building robust, intelligent, and scalable digital solutions.
+          AWS Certified Cloud Practitioner, Full-stack software developer & AI/ML engineer.
         </p>
       </div>
 
@@ -30,13 +30,13 @@ const About = () => {
         <div className="lg:col-span-7 flex flex-col justify-between space-y-5">
           <div className="space-y-3.5 text-xs sm:text-sm text-gray-300 leading-relaxed">
             <p>
-              I am a Computer Science Engineer based in Kolkata, West Bengal, passionate about architecting scalable full-stack applications, distributed databases, and generative AI systems.
+              I am a Computer Science Engineer based in Kolkata, West Bengal, passionate about architecting scalable full-stack applications, distributed databases, cloud systems, and generative AI pipelines.
             </p>
             <p>
               My hands-on experience spans building enterprise SaaS platforms with <strong>Next.js 16 App Router</strong> and <strong>Drizzle ORM (FinPulse)</strong>, production-grade <strong>MERN e-commerce marketplaces</strong> with 40+ REST endpoints and Gemini AI shopping assistants, and <strong>RAG document intelligence systems</strong> using FastAPI, LangChain, and Google Gemini.
             </p>
             <p>
-              Currently, I am deepening core cloud infrastructure (VPC, EC2, S3), Linux administration, and security fundamentals through the <strong>AWS re/Start program at Tata Strive</strong>.
+              I am an <strong>AWS Certified Cloud Practitioner</strong> with intensive cloud infrastructure training through the <strong>AWS re/Start program at Tata Strive</strong>, covering VPC, EC2, S3, IAM, Linux administration, and cloud security best practices.
             </p>
           </div>
 
@@ -66,10 +66,10 @@ const About = () => {
               <Sparkles size={12} className="text-purple-400" /> GenAI & RAG Pipelines
             </span>
             <span className="inline-flex items-center gap-1 text-[11px] font-mono px-3 py-1 rounded-full bg-white/[0.04] text-gray-300 border border-white/10">
-              <Cloud size={12} className="text-pink-400" /> AWS Cloud & DevOps
+              <Cloud size={12} className="text-amber-400" /> AWS Certified Cloud Practitioner
             </span>
             <span className="inline-flex items-center gap-1 text-[11px] font-mono px-3 py-1 rounded-full bg-white/[0.04] text-gray-300 border border-white/10">
-              <Database size={12} className="text-amber-400" /> SQL & Relational Databases
+              <Database size={12} className="text-cyan-400" /> SQL & Relational Databases
             </span>
           </div>
         </div>

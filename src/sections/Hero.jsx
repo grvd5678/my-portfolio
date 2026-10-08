@@ -9,10 +9,10 @@ const PAUSE_DURATION = 2000;
 const Hero = ({ onNavigateSlide }) => {
   const typingText = useTypingEffect(
     [
+      'AWS Certified Cloud Practitioner',
       'Full-Stack Developer (MERN & Next.js)',
       'AI & RAG Systems Builder',
       'Scalable Web & Cloud Architect',
-      'Software Engineer',
     ],
     TYPING_SPEED,
     DELETING_SPEED,
@@ -23,7 +23,7 @@ const Hero = ({ onNavigateSlide }) => {
     { target: 98.57, decimals: 2, suffix: "%", label: "NLP Accuracy (IIT Patna)" },
     { target: 40, decimals: 0, suffix: "+", label: "MERN REST Endpoints" },
     { target: 100, decimals: 0, suffix: "/100", label: "Lighthouse Performance" },
-    { target: 7, decimals: 0, suffix: "+", label: "Industry Certifications" },
+    { target: 8, decimals: 0, suffix: "+", label: "Industry Certifications" },
   ];
 
   return (
@@ -35,7 +35,7 @@ const Hero = ({ onNavigateSlide }) => {
           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
         </span>
         <span className="text-xs font-semibold text-gray-200 tracking-wide">
-          Open to Work • Full-Stack / MERN Developer
+          Open to Work • AWS Certified • Full-Stack & AI Engineer
         </span>
         <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-purple-300 font-medium pl-2 border-l border-white/10">
           <MapPin size={11} className="text-purple-400" /> Kolkata, IN
@@ -53,9 +53,30 @@ const Hero = ({ onNavigateSlide }) => {
       </p>
 
       {/* Hero Bio */}
-      <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-7 max-w-2xl mx-auto leading-relaxed font-normal">
-        Full-Stack developer specializing in modern MERN & Next.js ecosystems, with hands-on experience building enterprise financial SaaS platforms, AI shopping assistants, and RAG document intelligence systems.
+      <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed font-normal">
+        AWS Certified Cloud Practitioner & Full-Stack Developer specializing in modern MERN & Next.js ecosystems, RAG document intelligence, and cloud-native scalable backends.
       </p>
+
+      {/* Direct Dual Resume Access Bar */}
+      <div className="flex flex-wrap justify-center items-center gap-2.5 mb-7">
+        <span className="text-xs font-mono text-gray-400">Target Resumes:</span>
+        <a
+          href="/Gourav_Das_Resume_FullStack.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-medium transition-all hover:scale-105"
+        >
+          Full-Stack Resume (PDF)
+        </a>
+        <a
+          href="/Gourav_Das_Resume_AIML.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs font-medium transition-all hover:scale-105"
+        >
+          AI/ML Resume (PDF)
+        </a>
+      </div>
 
       {/* Action Buttons */}
       <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 mb-8">
@@ -79,10 +100,10 @@ const Hero = ({ onNavigateSlide }) => {
         </a>
 
         <button
-          onClick={() => onNavigateSlide && onNavigateSlide(7)}
-          className="flex items-center gap-2 py-3 px-6 rounded-full border border-purple-500/50 hover:bg-purple-500/10 text-purple-300 hover:text-white font-medium text-sm transition-all hover:scale-105"
+          onClick={() => onNavigateSlide && onNavigateSlide(6)}
+          className="flex items-center gap-2 py-3 px-6 rounded-full border border-amber-500/40 hover:bg-amber-500/10 text-amber-300 hover:text-white font-medium text-sm transition-all hover:scale-105"
         >
-          Contact Me <ArrowRight size={15} />
+          AWS Credentials <ArrowRight size={15} />
         </button>
       </div>
 

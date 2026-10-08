@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileText, ChevronDown } from 'lucide-react';
 
 const navItems = [
   { label: 'Home', slideIndex: 0 },
@@ -8,32 +8,37 @@ const navItems = [
   { label: 'Web & SaaS', slideIndex: 3 },
   { label: 'AI & GenAI', slideIndex: 4 },
   { label: 'Systems & ML', slideIndex: 5 },
-  { label: 'Experience', slideIndex: 6 },
+  { label: 'Experience & Certs', slideIndex: 6 },
   { label: 'Contact', slideIndex: 7 },
 ];
 
 const Navbar = ({ currentSlide = 0, onSelectSlide }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showResumeDropdown, setShowResumeDropdown] = useState(false);
 
   const handleNavClick = (slideIndex) => {
     if (onSelectSlide) {
       onSelectSlide(slideIndex);
     }
     setIsOpen(false);
+    setShowResumeDropdown(false);
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#070714]/85 backdrop-blur-xl border-b border-white/10 py-3 px-4 sm:px-6 shadow-xl shadow-black/20">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#070714]/85 backdrop-blur-xl border-b border-white/10 py-2.5 px-4 sm:px-6 shadow-xl shadow-black/20">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <button
           onClick={() => handleNavClick(0)}
-          className="text-lg sm:text-xl font-extrabold tracking-tight text-left focus:outline-none"
+          className="text-base sm:text-lg font-extrabold tracking-tight text-left focus:outline-none flex items-center gap-2"
         >
-          Gourav <span className="text-gradient">Das</span>
+          <span>Gourav <span className="text-gradient">Das</span></span>
+          <span className="hidden md:inline-block text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">
+            AWS Certified
+          </span>
         </button>
 
         {/* Desktop Nav Links */}
-        <div className="hidden xl:flex gap-5 items-center">
+        <div className="hidden xl:flex gap-4 items-center">
           {navItems.map((item) => {
             const isActive = currentSlide === item.slideIndex;
             return (
@@ -50,6 +55,42 @@ const Navbar = ({ currentSlide = 0, onSelectSlide }) => {
               </button>
             );
           })}
+
+          {/* Dual Resume Desktop Dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setShowResumeDropdown(!showResumeDropdown)}
+              onBlur={() => setTimeout(() => setShowResumeDropdown(false), 250)}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-200 border border-purple-500/30 text-xs font-semibold transition-all"
+            >
+              <FileText size={12} className="text-purple-400" />
+              <span>Resumes</span>
+              <ChevronDown size={11} className={`transition-transform duration-200 ${showResumeDropdown ? 'rotate-180' : ''}`} />
+            </button>
+
+            {showResumeDropdown && (
+              <div className="absolute right-0 mt-2 w-52 bg-[#0c0c1c]/95 border border-purple-500/30 rounded-xl shadow-2xl backdrop-blur-2xl p-1.5 space-y-1 z-50 animate-fadeIn">
+                <a
+                  href="/Gourav_Das_Resume_FullStack.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-gray-200 hover:text-cyan-300 hover:bg-white/[0.05] transition-all"
+                >
+                  <span>Full-Stack Resume</span>
+                  <span className="text-[10px] text-cyan-400 font-mono">PDF</span>
+                </a>
+                <a
+                  href="/Gourav_Das_Resume_AIML.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-gray-200 hover:text-purple-300 hover:bg-white/[0.05] transition-all"
+                >
+                  <span>AI / ML Resume</span>
+                  <span className="text-[10px] text-purple-400 font-mono">PDF</span>
+                </a>
+              </div>
+            )}
+          </div>
 
           {/* Social Icons on Navbar */}
           <div className="flex items-center gap-2.5 pl-3 border-l border-white/10">
@@ -108,6 +149,30 @@ const Navbar = ({ currentSlide = 0, onSelectSlide }) => {
               </button>
             );
           })}
+
+          {/* Mobile Resumes Section */}
+          <div className="pt-2 border-t border-white/10 px-2 space-y-1.5">
+            <span className="text-[10px] uppercase font-mono text-gray-400 block px-1">Resumes</span>
+            <a
+              href="/Gourav_Das_Resume_FullStack.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between py-1.5 px-3 rounded-lg text-xs text-cyan-300 bg-cyan-500/10 border border-cyan-500/20"
+            >
+              <span>Full-Stack Developer Resume</span>
+              <span className="text-[10px] font-mono">PDF</span>
+            </a>
+            <a
+              href="/Gourav_Das_Resume_AIML.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between py-1.5 px-3 rounded-lg text-xs text-purple-300 bg-purple-500/10 border border-purple-500/20"
+            >
+              <span>AI / ML Engineer Resume</span>
+              <span className="text-[10px] font-mono">PDF</span>
+            </a>
+          </div>
+
           <div className="flex gap-4 pt-3 border-t border-white/10 px-3 text-xs">
             <a href="https://github.com/grvd5678" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
               GitHub

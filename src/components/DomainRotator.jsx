@@ -17,8 +17,8 @@ const domains = [
     glow: "shadow-purple-500/20",
   },
   {
-    title: "Cloud & DevOps",
-    subtitle: "AWS • CI/CD • Linux",
+    title: "AWS Certified & Cloud",
+    subtitle: "AWS (CLF-C02) • CI/CD • Linux",
     icon: <Cloud className="text-pink-400" size={24} />,
     color: "border-pink-500/50 text-pink-300",
     glow: "shadow-pink-500/20",

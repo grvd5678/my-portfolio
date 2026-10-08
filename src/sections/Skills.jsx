@@ -35,7 +35,8 @@ const skillGroups = [
     icon: <Cloud className="text-amber-400" size={18} />,
     color: "border-amber-500/30",
     skills: [
-      "AWS (EC2, VPC, S3)",
+      "AWS Certified Cloud Practitioner",
+      "AWS (EC2, VPC, S3, IAM)",
       "DevOps & CI/CD",
       "LangChain & RAG",
       "Google Gemini API",

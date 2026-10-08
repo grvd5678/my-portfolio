@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Briefcase, Award, CheckCircle2, Building2, Eye } from "lucide-react";
+import { Award, CheckCircle2, Building2, Eye, ShieldCheck, ExternalLink } from "lucide-react";
 import MorphingTabs from "../components/MorphingTabs";
 import TiltCard from "../components/TiltCard";
 import CertificateModal from "../components/CertificateModal";
@@ -11,13 +11,47 @@ const Experience = () => {
 
   const items = [
     {
+      title: "AWS Certified Cloud Practitioner",
+      organization: "Amazon Web Services (AWS)",
+      type: "Certifications & Simulations",
+      badge: "Globally Certified",
+      duration: "Oct 2026 - Oct 2029",
+      desc: "Demonstrates overall understanding of AWS Cloud concepts, security, compliance, architecture principles, core AWS services (EC2, S3, VPC, RDS, IAM, CloudWatch), and billing/pricing models. Validated by Amazon Web Services.",
+      skills: ["AWS Cloud Architecture", "VPC & Networking", "EC2 & Compute", "S3 Storage", "IAM & Cloud Security", "Cloud Billing"],
+      validationNumber: "85072ebc063548f0b29c688c19317a06",
+      verificationUrl: "https://aws.amazon.com/verification",
+      certificatePdf: "/AWS_Certified_Cloud_Practitioner.pdf",
+      issueDate: "October 6, 2026",
+      expirationDate: "October 6, 2029",
+      featured: true,
+    },
+    {
       title: "AWS re/Start Cloud Trainee",
       organization: "Tata Strive",
       type: "Training & Internships",
-      badge: "In Progress",
-      duration: "Jun 2026 - Present",
-      desc: "Provisioning and configuring core AWS services (VPC, EC2, S3) through hands-on labs, alongside Linux administration and networking exercises. Applying cloud architecture, security groups, and IAM best practices through project-based coursework.",
-      skills: ["AWS (EC2, VPC, S3)", "Linux Administration", "Cloud Architecture", "IAM & Security"],
+      badge: "Completed",
+      duration: "Jun 2026 - Oct 2026",
+      desc: "Provisioning and configuring core AWS services (VPC, EC2, S3), Linux administration, networking, and IAM/security fundamentals through a structured, project-based curriculum.",
+      skills: ["AWS (EC2, VPC, S3)", "Linux Administration", "Cloud Security", "IAM Fundamentals"],
+    },
+    {
+      title: "Machine Learning Intern",
+      organization: "LearnDepth Academy LLP",
+      type: "Training & Internships",
+      badge: "Internship",
+      duration: "Aug 2026 - Sep 2026",
+      desc: "Built an end-to-end credit risk assessment API, utilizing traditional machine learning models for high explainability and performance in regulated financial industries.",
+      skills: ["Credit Risk Modeling", "Explainable AI", "REST API", "Scikit-Learn", "Python"],
+      live: "https://ml-t2-090-model-complexity.onrender.com/",
+    },
+    {
+      title: "First Commit — Bharat Builds Tour Hackathon",
+      organization: "WeMakeDevs x AWS",
+      type: "Certifications & Simulations",
+      badge: "AWS Hackathon",
+      duration: "Sep 2026",
+      desc: "Engineered cloud-native and full-stack solutions during the nationwide Bharat Builds Tour Hackathon powered by WeMakeDevs in collaboration with AWS.",
+      skills: ["Cloud Architecture", "AWS Solutions", "Full-Stack Collaboration"],
     },
     {
       title: "DevOps Foundations",
@@ -121,13 +155,26 @@ const Experience = () => {
       <div className="grid md:grid-cols-2 gap-4 max-h-[58vh] overflow-y-auto pr-1 no-scrollbar">
         {filteredItems.map((item, idx) => (
           <TiltCard key={idx} maxTilt={4} className="h-full">
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#0a0a18]/80 border border-white/10 hover:border-emerald-400/40 backdrop-blur-xl transition-all duration-300 flex flex-col justify-between h-full shadow-lg shadow-black/20">
+            <div
+              className={`p-4 sm:p-5 rounded-2xl ${
+                item.featured
+                  ? "bg-gradient-to-br from-[#120d28]/95 to-[#0b1322]/95 border-amber-500/40 shadow-xl shadow-amber-950/20 ring-1 ring-amber-500/20"
+                  : "bg-[#0a0a18]/80 border-white/10 hover:border-emerald-400/40"
+              } border backdrop-blur-xl transition-all duration-300 flex flex-col justify-between h-full shadow-lg shadow-black/20`}
+            >
               <div>
                 <div className="flex justify-between items-start gap-2 mb-2">
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
-                      {item.title}
-                    </h3>
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
+                        {item.title}
+                      </h3>
+                      {item.featured && (
+                        <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-semibold">
+                          <ShieldCheck size={11} /> AWS Official
+                        </span>
+                      )}
+                    </div>
                     <p className="text-xs font-medium text-emerald-300 flex items-center gap-1 mt-1">
                       <Building2 size={12} /> {item.organization}
                     </p>
@@ -160,12 +207,24 @@ const Experience = () => {
                   <span className="text-[11px] font-mono text-gray-400">
                     Badge: {item.badge}
                   </span>
-                  <button
-                    onClick={() => handleOpenCertModal(item)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-purple-300 hover:text-white border border-white/10 transition-colors text-[11px] font-medium"
-                  >
-                    <Eye size={12} /> View Details
-                  </button>
+                  <div className="flex items-center gap-2">
+                    {item.live && (
+                      <a
+                        href={item.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/30 text-[11px] font-medium transition-all"
+                      >
+                        <ExternalLink size={11} /> Live Demo
+                      </a>
+                    )}
+                    <button
+                      onClick={() => handleOpenCertModal(item)}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-purple-300 hover:text-white border border-white/10 transition-colors text-[11px] font-medium"
+                    >
+                      <Eye size={12} /> View Details
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
