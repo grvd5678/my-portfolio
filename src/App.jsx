@@ -136,7 +136,7 @@ function App() {
 
         {/* Slide 2: Skills */}
         <section className="w-[100vw] h-full flex items-center justify-center pt-16 pb-8 px-4 overflow-y-auto no-scrollbar">
-          <Skills />
+          <Skills onNavigateSlide={goToSlide} />
         </section>
 
         {/* Slide 3: Web & SaaS */}
