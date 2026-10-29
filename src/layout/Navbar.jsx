@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, FileText, ChevronDown } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 
 const navItems = [
   { label: 'Home', slideIndex: 0 },
@@ -14,14 +14,12 @@ const navItems = [
 
 const Navbar = ({ currentSlide = 0, onSelectSlide }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showResumeDropdown, setShowResumeDropdown] = useState(false);
 
   const handleNavClick = (slideIndex) => {
     if (onSelectSlide) {
       onSelectSlide(slideIndex);
     }
     setIsOpen(false);
-    setShowResumeDropdown(false);
   };
 
   return (
@@ -56,41 +54,16 @@ const Navbar = ({ currentSlide = 0, onSelectSlide }) => {
             );
           })}
 
-          {/* Dual Resume Desktop Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => setShowResumeDropdown(!showResumeDropdown)}
-              onBlur={() => setTimeout(() => setShowResumeDropdown(false), 250)}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-200 border border-purple-500/30 text-xs font-semibold transition-all"
-            >
-              <FileText size={12} className="text-purple-400" />
-              <span>Resumes</span>
-              <ChevronDown size={11} className={`transition-transform duration-200 ${showResumeDropdown ? 'rotate-180' : ''}`} />
-            </button>
-
-            {showResumeDropdown && (
-              <div className="absolute right-0 mt-2 w-52 bg-[#0c0c1c]/95 border border-purple-500/30 rounded-xl shadow-2xl backdrop-blur-2xl p-1.5 space-y-1 z-50 animate-fadeIn">
-                <a
-                  href="/Gourav_Das_Resume_FullStack.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-gray-200 hover:text-cyan-300 hover:bg-white/[0.05] transition-all"
-                >
-                  <span>Full-Stack Resume</span>
-                  <span className="text-[10px] text-cyan-400 font-mono">PDF</span>
-                </a>
-                <a
-                  href="/Gourav_Das_Resume_AIML.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-gray-200 hover:text-purple-300 hover:bg-white/[0.05] transition-all"
-                >
-                  <span>AI / ML Resume</span>
-                  <span className="text-[10px] text-purple-400 font-mono">PDF</span>
-                </a>
-              </div>
-            )}
-          </div>
+          {/* Resume Direct Link */}
+          <a
+            href="/Gourav_Das_Resume_SoftwareDev.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-gradient-to-r from-purple-500/20 to-cyan-500/20 hover:from-purple-500/30 hover:to-cyan-500/30 text-white border border-purple-500/40 text-xs font-semibold transition-all hover:scale-105 shadow-md shadow-purple-950/30"
+          >
+            <FileText size={12} className="text-cyan-400" />
+            <span>Resume (PDF)</span>
+          </a>
 
           {/* Social Icons on Navbar */}
           <div className="flex items-center gap-2.5 pl-3 border-l border-white/10">
@@ -150,26 +123,19 @@ const Navbar = ({ currentSlide = 0, onSelectSlide }) => {
             );
           })}
 
-          {/* Mobile Resumes Section */}
+          {/* Mobile Resume Section */}
           <div className="pt-2 border-t border-white/10 px-2 space-y-1.5">
-            <span className="text-[10px] uppercase font-mono text-gray-400 block px-1">Resumes</span>
             <a
-              href="/Gourav_Das_Resume_FullStack.pdf"
+              href="/Gourav_Das_Resume_SoftwareDev.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between py-1.5 px-3 rounded-lg text-xs text-cyan-300 bg-cyan-500/10 border border-cyan-500/20"
+              className="flex items-center justify-between py-2 px-3 rounded-lg text-xs text-white bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 font-semibold"
             >
-              <span>Full-Stack Developer Resume</span>
-              <span className="text-[10px] font-mono">PDF</span>
-            </a>
-            <a
-              href="/Gourav_Das_Resume_AIML.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between py-1.5 px-3 rounded-lg text-xs text-purple-300 bg-purple-500/10 border border-purple-500/20"
-            >
-              <span>AI / ML Engineer Resume</span>
-              <span className="text-[10px] font-mono">PDF</span>
+              <span className="flex items-center gap-2">
+                <FileText size={13} className="text-cyan-400" />
+                <span>Software Engineer Resume</span>
+              </span>
+              <span className="text-[10px] font-mono text-cyan-300">PDF</span>
             </a>
           </div>
 

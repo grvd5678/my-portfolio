@@ -1,37 +1,38 @@
-import { Cpu, Heart, Film, Database, Github, ExternalLink } from "lucide-react";
+import { Cpu, Database, Server, Network, Github, ExternalLink } from "lucide-react";
 import TiltCard from "../components/TiltCard";
 
 const systemProjects = [
   {
-    title: "Heart Disease Prediction System",
-    type: "B.Tech Final Year Capstone Project",
-    badge: "Machine Learning (82% Acc)",
-    desc: "Evaluated and benchmarked 5 supervised machine learning classifiers (Logistic Regression, KNN, SVM, Decision Tree, Random Forest) on clinical patient telemetry to predict early-stage cardiovascular risks with up to 82% accuracy.",
-    tech: ["Python", "Scikit-Learn", "SVM", "Random Forest", "Matplotlib", "Seaborn"],
-    icon: <Heart className="text-rose-400" size={22} />,
-    color: "border-rose-500/30",
-    stats: "5 Classifiers Compared",
-    live: "https://heart-disease-predictor-1j4t.onrender.com/",
+    title: "ShopHub Docker & Redis Engine",
+    type: "Distributed Systems & Caching Layer",
+    badge: "Docker • Redis 7 • Sub-5ms",
+    desc: "Docker multi-container orchestration (Mongo, Redis, API, Nginx) powering a production MERN platform. Features a Redis 7 cache-aside layer delivering sub-5ms read latencies with automated key invalidation, Socket.io room state synchronization, and TLS auto-detection.",
+    tech: ["Docker", "Docker Compose", "Redis 7", "Node.js", "Nginx", "Socket.io"],
+    icon: <Server className="text-cyan-400" size={22} />,
+    color: "border-cyan-500/30",
+    stats: "Sub-5ms Read Latency",
+    live: "https://ecommerce-frontend-l3zz.onrender.com/",
+  },
+  {
+    title: "FalkorDB Graph Algorithm Engine",
+    type: "Graph Database & Autonomous Routing",
+    badge: "FalkorDB • Cypher • <1ms",
+    desc: "Authored multi-hop Cypher queries (*1..5 hops) and graph algorithms (algo.pageRank, shortestPath) executing in <1 ms over architectural decisions, microservice dependencies, and incident post-mortems to compute blast radius and task orchestration.",
+    tech: ["FalkorDB", "Cypher", "FastAPI", "Next.js 15", "Graph Algorithms", "Docker"],
+    icon: <Network className="text-purple-400" size={22} />,
+    color: "border-purple-500/30",
+    stats: "<1ms Query Execution",
+    live: "https://nexusgraph-omega.vercel.app/",
   },
   {
     title: "Big Data & Hadoop Storage System",
-    type: "NIELIT Govt. of India Bootcamp Project",
+    type: "NIELIT Govt. of India Bootcamp",
     badge: "Big Data & Distributed HDFS",
-    desc: "Engineered scalable distributed storage architectures using Hadoop HDFS, Spark, and Hive on Linux virtual clusters. Implemented MapReduce workflows and distributed query processing over large-scale unstructured datasets.",
+    desc: "Engineered scalable distributed storage architectures using Hadoop HDFS, Spark, and Hive on Linux virtual clusters. Implemented MapReduce workflows, distributed query processing, and applied storage operations over large-scale datasets.",
     tech: ["Hadoop", "HDFS", "Apache Spark", "Apache Hive", "Linux", "Distributed Systems"],
     icon: <Database className="text-amber-400" size={22} />,
     color: "border-amber-500/30",
     stats: "90-Hour Implementation",
-  },
-  {
-    title: "Movie Recommendation System",
-    type: "Ardent Computech Capstone Project",
-    badge: "Collaborative Filtering",
-    desc: "Implemented content-based and collaborative filtering recommendation engines using Cosine Similarity metrics, matrix factorization, and vector nearest neighbors in Python.",
-    tech: ["Python", "Pandas", "Scikit-Learn", "NumPy", "Recommendation Algorithms"],
-    icon: <Film className="text-purple-400" size={22} />,
-    color: "border-purple-500/30",
-    stats: "Cosine Similarity Matrix",
   },
 ];
 
@@ -44,10 +45,10 @@ const ProjectsSystems = () => {
           <Cpu size={13} /> Engineering & Infrastructure
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-          Systems, <span className="text-gradient-amber">Big Data & ML</span>
+          Systems, <span className="text-gradient-amber">Cloud & Distributed Data</span>
         </h2>
         <p className="text-xs sm:text-sm text-gray-400 mt-1">
-          Predictive analytics, distributed Big Data architectures (Hadoop/HDFS), and computational capstones.
+          High-throughput caching architectures, graph database engines, and distributed Big Data storage.
         </p>
       </div>
 
@@ -95,7 +96,7 @@ const ProjectsSystems = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-rose-500 to-amber-500 hover:from-rose-400 hover:to-amber-400 text-white font-semibold text-xs transition-all shadow-md shadow-rose-500/20"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-amber-500 hover:from-cyan-400 hover:to-amber-400 text-white font-semibold text-xs transition-all shadow-md shadow-cyan-500/20"
                     >
                       <ExternalLink size={13} /> Live Demo
                     </a>
@@ -121,4 +122,3 @@ const ProjectsSystems = () => {
 };
 
 export default ProjectsSystems;
-

@@ -22,24 +22,24 @@ const ResumeModal = ({ isOpen, onClose }) => {
           <h3 className="text-xl font-bold">Resume Preview</h3>
           <div className="flex gap-2">
             <a
-              href="/Gourav_Das_Resume_FullStack.pdf"
-              download="Gourav_Das_Resume.pdf"
-              className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 rounded-lg transition-colors"
+              href="/Gourav_Das_Resume_SoftwareDev.pdf"
+              download="Gourav_Das_Resume_SoftwareDev.pdf"
+              className="flex items-center gap-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 rounded-lg transition-colors text-xs font-semibold"
             >
-              <Download size={18} /> Download
+              <Download size={16} /> Download
             </a>
             <button
               onClick={onClose}
               className="p-2 hover:bg-white/10 rounded-lg transition-colors"
               aria-label="Close modal"
             >
-              <X size={24} />
+              <X size={20} />
             </button>
           </div>
         </div>
         <div className="w-full h-[calc(100%-4rem)] overflow-auto">
           <iframe
-            src="/Gourav_Das_Resume_FullStack.pdf"
+            src="/Gourav_Das_Resume_SoftwareDev.pdf"
             className="w-full h-full"
             title="Resume Preview"
           />
