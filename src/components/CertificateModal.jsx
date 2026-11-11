@@ -1,18 +1,45 @@
-import { X, Award, ExternalLink, FileText, CheckCircle2, ShieldCheck } from "lucide-react";
+import { useEffect } from "react";
+import { createPortal } from "react-dom";
+import { X, Award, ExternalLink, FileText, CheckCircle2, ShieldCheck, Copy, Check } from "lucide-react";
+import { useState } from "react";
 
 const CertificateModal = ({ isOpen, onClose, certificate }) => {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen || !certificate) return null;
 
-  return (
+  const handleCopyValidation = () => {
+    if (certificate.validationNumber) {
+      navigator.clipboard.writeText(certificate.validationNumber);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="cert-modal-title"
     >
       <div
-        className="relative w-full max-w-2xl bg-[#0b0b18] rounded-2xl border border-purple-500/30 overflow-hidden shadow-2xl shadow-purple-950/50 max-h-[90vh] flex flex-col"
+        className="relative w-full max-w-2xl bg-[#0b0b18] rounded-2xl border border-purple-500/40 overflow-hidden shadow-2xl shadow-purple-950/60 max-h-[90vh] flex flex-col animate-scaleUp"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -40,10 +67,10 @@ const CertificateModal = ({ isOpen, onClose, certificate }) => {
         </div>
 
         {/* Certificate Body & Info */}
-        <div className="p-5 sm:p-6 space-y-4 overflow-y-auto">
+        <div className="p-5 sm:p-6 space-y-4 overflow-y-auto no-scrollbar">
           {/* Official Verification Box for AWS or verified certs */}
           {certificate.validationNumber && (
-            <div className="p-4 rounded-xl bg-gradient-to-r from-amber-500/10 via-purple-500/10 to-cyan-500/10 border border-amber-500/30 space-y-3">
+            <div className="p-4 rounded-xl bg-gradient-to-r from-amber-500/10 via-purple-500/10 to-cyan-500/10 border border-amber-500/40 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-300">
                   <ShieldCheck size={16} /> Official Credential Verification
@@ -56,14 +83,23 @@ const CertificateModal = ({ isOpen, onClose, certificate }) => {
               <div className="grid sm:grid-cols-2 gap-2 text-xs">
                 <div>
                   <span className="text-gray-400 block text-[11px]">Validation Number:</span>
-                  <span className="font-mono text-white font-semibold select-all">
-                    {certificate.validationNumber}
-                  </span>
+                  <div className="flex items-center gap-2 mt-0.5">
+                    <span className="font-mono text-white font-semibold text-xs select-all bg-black/40 px-2 py-1 rounded border border-white/10">
+                      {certificate.validationNumber}
+                    </span>
+                    <button
+                      onClick={handleCopyValidation}
+                      title="Copy Validation ID"
+                      className="p-1 rounded hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
+                    >
+                      {copied ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                    </button>
+                  </div>
                 </div>
                 {certificate.issueDate && (
                   <div>
                     <span className="text-gray-400 block text-[11px]">Validity:</span>
-                    <span className="text-gray-200">
+                    <span className="text-gray-200 mt-0.5 block font-mono text-xs">
                       {certificate.issueDate} — {certificate.expirationDate || "Present"}
                     </span>
                   </div>
@@ -131,7 +167,8 @@ const CertificateModal = ({ isOpen, onClose, certificate }) => {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
